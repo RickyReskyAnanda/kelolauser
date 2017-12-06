@@ -54,9 +54,9 @@
 
                             <div class="row">
                                 <div class="col s6">
-                                    <label for="desa">Pilih Desa</label>
+                                    <label for="desa">Pilih Kampung</label>
                                     <select class="error browser-default" id="desa" name="desa" data-error=".errorTxt1">
-                                        <option value="" disabled selected>Pilih Desa</option>
+                                        <option value="" disabled selected>Pilih Kampung</option>
                                         @foreach($distrik as $dist)
                                         <optgroup label="{{$dist->nm_distrik}}">
                                             @foreach($dist->desa as $ds)
@@ -124,7 +124,7 @@
                                                 </div>
                                                 <div class="card amber lighten-3">
                                                     <div class="card-content">
-                                                        <b>Desa: </b><br>
+                                                        <b>Kampung: </b><br>
                                                         {{$val->usulanDesa->desa->nm_desa}}
                                                     </div>
                                                 </div>

@@ -13,7 +13,7 @@
                         <p>Setelah data terhapus, data tidak dapat dikembalikan !</p>
                     </div>
                     <div class="card-action right">
-                        <a href="{{url('distrik/berita-acara/delete/'.$posisi.'/'.$id)}}" class="white-text">Hapus Gambar</a>
+                        <a href="{{url('distrik/berita-acara/delete/'.$posisi.'/'.$id)}}" class="white-text">Hapus</a>
                         <a href="{{url('distrik/berita-acara')}}" class="white-text">Batalkan</a>
                     </div>
                 </div>

@@ -21,5 +21,9 @@ class DistrikModel extends Model
 	public function desa(){
 		return $this->hasMany('App\Model\DesaModel','kd_distrik', 'kd_distrik');
 	}
+
+	public function usulanSKPD(){
+		return $this->hasMany('App\Model\UsulanSKPDModel','kd_distrik', 'kd_distrik');
+	}
 	
 }

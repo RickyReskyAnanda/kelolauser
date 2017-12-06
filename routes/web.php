@@ -163,6 +163,19 @@ Route::middleware('ceklogin:administrator')->group(function () {
 			Route::get('aspirasi-masyarakat/delete/{id}','AspirasiController@deleteAspirasi');
 
 			Route::get('pokok-pikiran','PokirDPRDController@viewPokokPikiran');
+			Route::get('pokok-pikiran/konfirmasi/{id}','PokirDPRDController@konfirmasiPokokPikiran');
+
+			Route::get('usulan','UsulanBappedaController@viewUsulanMasuk');
+			Route::get('usulan/verifikasi','UsulanBappedaController@viewUsulanVerifikasi');
+			Route::get('usulan/ditolak','UsulanBappedaController@viewUsulanDitolak');
+
+			Route::get('usulan/edit/{id}','UsulanBappedaController@viewEditUsulanMasuk');
+			Route::post('usulan/edit','UsulanBappedaController@postEditUsulan');
+			Route::get('usulan/edit/hapus-gambar/{id}','UsulanBappedaController@viewHapusGambar');
+			Route::get('usulan/edit/delete-gambar/{id}','UsulanBappedaController@postHapusGambar');
+			Route::get('usulan/persetujuan/{persetujuan}/{id}','UsulanBappedaController@viewAlasanPersetujuan');
+			Route::post('usulan/persetujuan','UsulanBappedaController@postAlasanPersetujuan');
+
 
 		});
 	});

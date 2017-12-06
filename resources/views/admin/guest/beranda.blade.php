@@ -17,6 +17,16 @@
         </div>
         <div class="row">
             <div class="col s6">
+                @if (session('aksesmasuk'))
+                <div id="card-alert" class="card orange">
+                      <div class="card-content white-text">
+                        <p><i class="mdi-alert-warning"></i> WARNING : {{session('aksesmasuk')}}</p>
+                      </div>
+                      <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                @endif
                 <div id="task-card" class="collection with-header">
                   <div class="collection-header cyan">
                       <h6 class="task-card-title">Login sebagai Kampung, Distrik ,SKPD, Bappeda, Admin</h6>

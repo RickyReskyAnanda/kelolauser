@@ -22,10 +22,10 @@ border:1px solid black;
 <p align="center">BERITA  ACARA<br />
   HASIL KESEPAKATAN  MUSRENBANG RKPD<br />
   KABUPATEN YALIMO<br />
-  DI KECAMATAN  {{strtoupper(Auth::user()->kode_wilayah)}} TAHUN 2016</p>
+  DI DISTRIK  {{strtoupper($detail->distrik->nm_distrik)}} TAHUN 2016</p>
 <p align="center">&nbsp;</p>
 <p>Pada hari {{ucfirst($detail->hari)}} tanggal {{$detail->tgl}} bertempat di 
- {{$detail->tempat}} di Kecamatan {{$detail->kode_wilayah}} telah  diselenggarakan Musrenbang RKPD Kabupaten Yalimo di Kecamatan {{$detail->kode_wilayah}} yang dihadiri  pemangku kepentingan sesuai dengan daftar hadir peserta yang tercantum dalam LAMPIRAN  I berita acara ini.<br />
+ {{$detail->tempat}} di Distrik {{$detail->kode_wilayah}} telah  diselenggarakan Musrenbang RKPD Kabupaten Yalimo di Distrik {{$detail->kode_wilayah}} yang dihadiri  pemangku kepentingan sesuai dengan daftar hadir peserta yang tercantum dalam LAMPIRAN  I berita acara ini.<br />
   Setelah memperhatikan,  mendengar dan mempertimbangkan:</p>
 <ol>
   <li>Sambutan-sambutan  yang disampaikan oleh.</li>
@@ -35,24 +35,24 @@ border:1px solid black;
   @endforeach
   </ol>
   
-<p>Pada Acara pembukaan Musrenbang Kecamatan</p>
+<p>Pada Acara pembukaan Musrenbang Distrik</p>
 
   <li>Pemaparan  materi lainnya  Dakwah</li>
-  <li>Tanggapan  dan saran dari seluruh peserta Musrenbang Kecamatan terhadap bahan diskusi  sebagaimana telah dirangkum menjadi hasil keputusan kelompok diskusi Musrenbang  Kecamatan, maka pada:</li>
+  <li>Tanggapan  dan saran dari seluruh peserta Musrenbang Distrik terhadap bahan diskusi  sebagaimana telah dirangkum menjadi hasil keputusan kelompok diskusi Musrenbang  Distrik, maka pada:</li>
 </ol>
 
 <p style="margin-left: 100px">
 <table><tr><td>Hari, Tanggal</td><td>:</td><td>{{$detail->hari}}, {{$detail->tgl}}  </td></tr>
   <tr><td>J a m </td><td>:</td><td>{{$detail->pukul}}</td></tr>
  <tr><td>Tempat </td><td>:</td><td>{{$detail->tempat}}</td></tr>
- <tr><td> Musrenbang Kecamatan  </td><td>:</td><td><?=$kec_name?></td></tr>
+ <tr><td> Musrenbang Distrik  </td><td>:</td><td><?=ucwords($detail->distrik->nm_distrik)?></td></tr>
 </table>
 </p>
 <p style="margin-left: 10px">
 <table><tr><td colspan="3" style="text-align: center">MENYEPAKATI</td></tr>
-  <tr><td valign="top">KESATU</td><td valign="top">:</td><td>Pekerjaan  dan sasaran &nbsp;prioritas yang disertai  target dan kebutuhan pendanaan dalam Daftar Pekerjaan Prioritas Kecamatan <?=$kec_name?> Kabupaten Yalimo Tahun 2017 sebagaimana  tercantum dalam LAMPIRAN II berita acara ini.</td></tr>
- <tr><td valign="top">KEDUA </td><td valign="top">:</td><td>Usulan  pekerjaan yang belum dapat diakomodir sebagai usulan Kecamatan dan usulan cadangan tercantum dalam LAMPIRAN III&nbsp; berita acara ini</td></tr>
- <tr><td valign="top"> KETIGA  </td><td valign="top">:</td><td>Hasil  sidang-sidang kelompok Musrenbang Kecamatan <?=$kec_name?> Kabupaten Yalimo Tahun {{date('Y')}} dan daftar&nbsp; hadir peserta Musrenbang Kecamatan sebagaimana  tercantum dalam Lampiran I, LAMPIRAN II dan LAMPIRAN III merupakan satu  kesatuan dan merupakan bagian yang tidak terpisahkan dari berita acara ini.</td></tr>
+  <tr><td valign="top">KESATU</td><td valign="top">:</td><td>Pekerjaan  dan sasaran &nbsp;prioritas yang disertai  target dan kebutuhan pendanaan dalam Daftar Pekerjaan Prioritas Distrik <?=ucwords($kec_name)?> Kabupaten Yalimo Tahun 2017 sebagaimana  tercantum dalam LAMPIRAN II berita acara ini.</td></tr>
+ <tr><td valign="top">KEDUA </td><td valign="top">:</td><td>Usulan  pekerjaan yang belum dapat diakomodir sebagai usulan Distrik dan usulan cadangan tercantum dalam LAMPIRAN III&nbsp; berita acara ini</td></tr>
+ <tr><td valign="top"> KETIGA  </td><td valign="top">:</td><td>Hasil  sidang-sidang kelompok Musrenbang Distrik <?=ucwords($kec_name)?> Kabupaten Yalimo Tahun {{date('Y')}} dan daftar&nbsp; hadir peserta Musrenbang Distrik sebagaimana  tercantum dalam Lampiran I, LAMPIRAN II dan LAMPIRAN III merupakan satu  kesatuan dan merupakan bagian yang tidak terpisahkan dari berita acara ini.</td></tr>
  
  <tr><td valign="top"> KEEMPAT  </td><td valign="top">:</td><td>Untuk pekerjaan fisik, apabila lokasi yang diusulkan merupakan milik perorangan atau sedang dalam konflik gugatan, atau berada dalam perumahan yang prasarana, sarana, dan utilitas (PSU) belum diserah terimakan kepada Pemerintah Kabupaten Yalimo atau milik Instansi Lain (Kementrian/BUMD/BUMN) maka Pemerintah Kabupaten Yalimo dapat membatalkan usulan tersebut.</td>
  </tr>
@@ -96,7 +96,7 @@ border:1px solid black;
 <DIV style="page-break-after:always"></DIV>
 
   <div style="margin-left: 400px">
-<table width="100%"><tr><td nowrap=""  valign="top">LAMPIRAN I </td><td  valign="top">:</td><td>Berita Acara Kesepakatan Hasil Musrenbang Kecamatan <?=$kec_name?>  </td></tr>
+<table width="100%"><tr><td nowrap=""  valign="top">LAMPIRAN I </td><td  valign="top">:</td><td>Berita Acara Kesepakatan Hasil Musrenbang Distrik <?=ucwords($kec_name)?>  </td></tr>
   <tr><td></td><td> </td><td>Nomor   : {{$detail->no_ba}}  </td></tr>
  <tr><td></td><td> </td><td>Tanggal   : {{$detail->tgl_ba}}  </td></tr>
  <tr><td colspan="3"><hr> </td></tr>
@@ -104,15 +104,21 @@ border:1px solid black;
 </div>
 
 <p style="margin-left: 10px">
-<table width="100%"><tr><td colspan="3" style="text-align: center"><h4>Daftar Hadir Musrenbang Kecamatan</h4>  </td></tr>
-  <tr><td valign="top" width="100px">Kecamatan</td><td valign="top">:</td><td> <?=$kec_name?> </td></tr>
+<table width="100%"><tr><td colspan="3" style="text-align: center"><h4>Daftar Hadir Musrenbang Distrik</h4>  </td></tr>
+  <tr><td valign="top" width="10px">Distrik</td><td valign="top" width="1px">:</td><td> {{ucwords($kec_name)}} </td></tr>
 </table>
  
- <table width="100%" cellpadding="5px" cellspacing="0px"    bordercolordark ="white" class="tabel">
- 	<tr><td nowrap="" >No </td><td>Nama</td><td>Alamat</td><td>Asal</td><td>Tanda tangan</td></tr>
+ <table width="100%" cellpadding="5px" cellspacing="0px"   class="tabel">
+ 	<tr><td>No </td><td>Nama</td><td>Alamat</td><td>Asal</td><td>Tanda tangan</td></tr>
  	<?php $i=1;?>
 	@foreach($detail->peserta as $peserta)
-		<tr><td nowrap="" > </td><td><?{{$peserta->anggota}}?></td><td>{{$peserta->alamat}}</td><td>{{$peserta->asal}}</td><td>&nbsp;</td></tr>
+		<tr>
+    <td>{{$i++}}</td>
+    <td>{{$peserta->anggota}}</td>
+    <td>{{$peserta->alamat}}</td>
+    <td>{{$peserta->asal}}</td>
+    <td>&nbsp;</td>
+    </tr>
 	@endforeach
 	
  </table>
@@ -122,7 +128,7 @@ border:1px solid black;
 <DIV style="page-break-after:always"></DIV>
 
   <div style="margin-left: 400px">
-<table width="100%"><tr><td nowrap=""  valign="top">LAMPIRAN II </td><td  valign="top">:</td><td>Berita Acara Kesepakatan Hasil Musrenbang Kecamatan <?=$kec_name?>  </td></tr>
+<table width="100%"><tr><td nowrap=""  valign="top">LAMPIRAN II </td><td  valign="top">:</td><td>Berita Acara Kesepakatan Hasil Musrenbang Distrik <?=ucwords($kec_name)?>  </td></tr>
   <tr><td></td><td> </td><td>Nomor   : {{$detail->no_ba}}  </td></tr>
  <tr><td></td><td> </td><td>Tanggal   : {{$detail->tgl_ba}}  </td></tr>
  <tr><td colspan="3"><hr> </td></tr>
@@ -132,10 +138,10 @@ border:1px solid black;
 
 <p style="margin-left: 10px">
 <table width="100%"><tr><td colspan="3" style="text-align: center"><h4>Daftar Usulan yang Disetujui</h4>  </td></tr>
-  <tr><td valign="top" width="10px">Kecamatan</td><td valign="top" width="1px">:</td><td> {{$kec_name}} </td></tr>
+  <tr><td valign="top" width="10px">Distrik</td><td valign="top" width="1px">:</td><td> {{ucwords($kec_name)}} </td></tr>
 </table>
  <table width="100%" cellpadding="5px" cellspacing="0px"    bordercolordark ="white" class="tabel">
- 	<tr bgcolor="#e7de45"><td nowrap="" >No </td><td>Pengusul</td><td>Usulan</td><td>Lokasi</td><td>Keterangan</td><td>Volume</td><td>Catatan Kecamatan-SKPD</td><td>Biaya</td></tr>
+ 	<tr bgcolor="#e7de45"><td nowrap="" >No </td><td>Pengusul</td><td>Usulan</td><td>Lokasi</td><td>Keterangan</td><td>Volume</td><td>Catatan Distrik-SKPD</td><td>Biaya</td></tr>
   <?php $i=1;?>
   @foreach($usulan as $usul)
     @if($usul->level == 'UTAMA' && $usul->sts_usulan=='DIPROSES SKPD')
@@ -158,7 +164,7 @@ border:1px solid black;
 <DIV style="page-break-after:always"></DIV>
 
   <div style="margin-left: 400px">
-<table width="100%"><tr><td nowrap=""  valign="top">LAMPIRAN III </td><td  valign="top">:</td><td>Berita Acara Kesepakatan Hasil Musrenbang Kecamatan <?=$kec_name?>  </td></tr>
+<table width="100%"><tr><td nowrap=""  valign="top">LAMPIRAN III </td><td  valign="top">:</td><td>Berita Acara Kesepakatan Hasil Musrenbang Distrik <?=ucwords($kec_name)?>  </td></tr>
   <tr><td></td><td> </td><td>Nomor   : {{$detail->no_ba}}  </td></tr>
  <tr><td></td><td> </td><td>Tanggal   : {{$detail->tgl_ba}}  </td></tr>
  <tr><td colspan="3"><hr> </td></tr>
@@ -169,11 +175,11 @@ border:1px solid black;
 
 <p style="margin-left: 10px">
 <table width="100%"><tr><td colspan="3" style="text-align: center"><h4>Daftar Usulan yang Belum Disetujui</h4>  </td></tr>
-  <tr><td valign="top" width="10px">Kecamatan</td><td valign="top" width="1px">:</td><td> <?php echo $kec_name ; ?> </td></tr>
+  <tr><td valign="top" width="10px">Distrik</td><td valign="top" width="1px">:</td><td> <?php echo $kec_name ; ?> </td></tr>
 </table>
 
 <table width="100%" cellpadding="5px" cellspacing="0px"    bordercolordark ="white" class="tabel">
- 	<tr bgcolor="#e7de45"><td nowrap="" >No </td><td>Pengusul</td><td>Usulan</td><td>Lokasi</td><td>Keterangan</td><td>Volume</td><td>Catatan Kecamatan-SKPD</td><td>Biaya</td></tr>
+ 	<tr bgcolor="#e7de45"><td nowrap="" >No </td><td>Pengusul</td><td>Usulan</td><td>Lokasi</td><td>Keterangan</td><td>Volume</td><td>Catatan Distrik-SKPD</td><td>Biaya</td></tr>
 		<?php $i=1;?>
   @foreach($usulan as $usul)
     @if($usul->level == 'UTAMA' && $usul->sts_usulan!='DIPROSES SKPD')
@@ -191,11 +197,11 @@ border:1px solid black;
 
 <p style="margin-left: 10px">
 <table width="100%"><tr><td colspan="3" style="text-align: center"><h4>Daftar Usulan Cadangan</h4>  </td></tr>
-  <tr><td valign="top" width="10px">Kecamatan</td><td valign="top" width="1px">:</td><td> <?php echo $kec_name ; ?> </td></tr>
+  <tr><td valign="top" width="10px">Distrik</td><td valign="top" width="1px">:</td><td> <?php echo $kec_name ; ?> </td></tr>
 </table>
 
 <table width="100%" cellpadding="5px" cellspacing="0px"    bordercolordark ="white" class="tabel">
- 	<tr bgcolor="#e7de45"><td nowrap="" >No </td><td>Pengusul</td><td>Usulan</td><td>Lokasi</td><td>Keterangan</td><td>Volume</td><td>Catatan Kecamatan-SKPD</td><td>Biaya</td></tr>
+ 	<tr bgcolor="#e7de45"><td nowrap="" >No </td><td>Pengusul</td><td>Usulan</td><td>Lokasi</td><td>Keterangan</td><td>Volume</td><td>Catatan Distrik-SKPD</td><td>Biaya</td></tr>
 	  <?php $i=1;?>
   @foreach($usulan as $usul)
     @if($usul->level == 'CADANGAN')
@@ -211,7 +217,7 @@ border:1px solid black;
 <DIV style="page-break-after:always"></DIV>
 
   <div style="margin-left: 400px">
-<table width="100%"><tr><td nowrap=""  valign="top">LAMPIRAN IV </td><td  valign="top">:</td><td>Berita Acara Kesepakatan Hasil Musrenbang Kecamatan <?php echo $kec_name; ?>  </td></tr>
+<table width="100%"><tr><td nowrap=""  valign="top">LAMPIRAN IV </td><td  valign="top">:</td><td>Berita Acara Kesepakatan Hasil Musrenbang Distrik <?php echo $kec_name; ?>  </td></tr>
   <tr><td></td><td> </td><td>Nomor   : {{$detail->no_ba}}  </td></tr>
  <tr><td></td><td> </td><td>Tanggal   : {{$detail->tgl_ba}}  </td></tr>
  <tr><td colspan="3"><hr> </td></tr>
@@ -219,7 +225,7 @@ border:1px solid black;
 </div>
 
 <p style="margin-left: 10px">
-<table width="100%"><tr><td colspan="3" style="text-align: center"><h4>Daftar Delegasi Kecamatan <?php echo $kec_name ; ?> Untuk Forum SKPD dan Musrenbang Kota</h4>  </td></tr>
+<table width="100%"><tr><td colspan="3" style="text-align: center"><h4>Daftar Delegasi Distrik <?php echo $kec_name ; ?> Untuk Forum SKPD dan Musrenbang Kota</h4>  </td></tr>
 </table>
 
  <table width="100%" cellpadding="5px" cellspacing="0px"    bordercolordark ="white" class="tabel">

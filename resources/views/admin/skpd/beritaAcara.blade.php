@@ -11,10 +11,10 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">Berita Acara Distrik</h5>
+                <h5 class="breadcrumbs-title">Berita Acara</h5>
                 <ol class="breadcrumbs">
-                    <li><a href="{{url('distrik')}}">Beranda</a></li>
-                    <li class="active">Berita Acara Distrik</li>
+                    <li><a href="{{url('skpd')}}">Beranda</a></li>
+                    <li class="active">Berita Acara</li>
                 </ol>
             </div>
         </div>
@@ -110,7 +110,7 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <button class="btn orange right"  style="margin: 10px 10px 0 10px">Cetak</button>
+                                    <button class="btn orange right" style="margin:10px">Cetak</button>
                                 </div>
                             </div>
                         </form>

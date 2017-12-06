@@ -11,12 +11,11 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">Edit Distrik</h5>
+                <h5 class="breadcrumbs-title">Edit Kampung</h5>
                 <ol class="breadcrumbs">
                     <li><a href="{{url('administrator')}}">Beranda</a></li>
-                    <li>Data Master</li>
-                    <li><a href="{{url('administrator/data-master/desa')}}"> Desa</a></li>
-                    <li class="active">Edit Distrik</li>
+                    <li><a href="{{url('administrator/data-master/desa')}}"> Kampung</a></li>
+                    <li class="active">Edit Kampung</li>
                 </ol>
             </div>
         </div>
@@ -61,7 +60,7 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <label for="nm_desa">Nama Desa</label>
+                                    <label for="nm_desa">Nama Kampung</label>
                                     <input type="text" name="nm_desa" id="nm_desa" value="{{$detail->nm_desa}}" data-error=".errorTxt2">
                                     <div class="errorTxt2"></div>
                                 </div>

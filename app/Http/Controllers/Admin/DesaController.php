@@ -46,7 +46,7 @@ class DesaController extends Controller
         $desa->us_ed        = Auth::user()->name;
         $desa->save();
 
-        return redirect('administrator/data-master/desa')->with('pesan', 'Desa '.$request->nm_desa.' telah ditambahkan !');
+        return redirect('administrator/data-master/desa')->with('pesan', 'Kampung '.$request->nm_desa.' telah ditambahkan !');
     }
 
 
@@ -72,7 +72,7 @@ class DesaController extends Controller
         $desa->us_ed        = Auth::user()->name;
         $desa->save();
 
-        return redirect('administrator/data-master/desa')->with('pesan', 'Desa '.$request->nm_desa.' telah diperbaharui !');
+        return redirect('administrator/data-master/desa')->with('pesan', 'Kampung '.$request->nm_desa.' telah diperbaharui !');
     }
 
     public function viewDeleteDesa($id){
@@ -83,6 +83,6 @@ class DesaController extends Controller
         $desa = DesaModel::find($id);
         $nama = $desa->nm_desa;
         $desa->delete();
-        return redirect('administrator/data-master/desa')->with('pesan', 'Data Desa '.$nama.' telah dihapus !');
+        return redirect('administrator/data-master/desa')->with('pesan', 'Data Kampung '.$nama.' telah dihapus !');
     }
 }

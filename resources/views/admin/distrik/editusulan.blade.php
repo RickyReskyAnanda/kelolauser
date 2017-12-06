@@ -13,8 +13,8 @@
             <div class="col s12 m12 l12">
                 <h5 class="breadcrumbs-title">Edit Usulan Masuk</h5>
                 <ol class="breadcrumbs">
-                    <li><a href="{{url('desa')}}">Beranda</a></li>
-                    <li><a href="{{url('desa/usulan')}}">Usulan</a></li>
+                    <li><a href="{{url('distrik')}}">Beranda</a></li>
+                    <li><a href="{{url('distrik/usulan/masuk')}}">Usulan</a></li>
                     <li class="active">Input Usulan Desa</li>
                 </ol>
             </div>
@@ -47,7 +47,7 @@
                             <div class="card-content">
                                 <span class="card-title">Desa {{ucwords($detail->usulanDesa->desa->nm_desa)}}</span><br>
                                 <h5>{{ucwords($detail->nama_pekerjaan)}}</h5>
-                                <h5>Biaya Rp.{{$detail->harga.'/'.$detail->satuan}}</h5>
+                                <h5>Biaya Rp.{{number_format($detail->harga).'/'.$detail->satuan}}</h5>
                             </div>
                         </div>
                     </div>
@@ -65,15 +65,12 @@
                             <div class="row">
                                 <div class="col s12">
                                     <label for="jalan">Nama Jalan</label>
-                                    <select class="error browser-default" id="jalan" name="jalan" data-error=".errorTxt2">
-                                        <option value="" disabled selected>Nama Jalan</option>
+                                    <select class="browser-default" id="jalan" name="jalan">
+                                        <option value="" selected>Nama Jalan</option>
                                         @foreach($detail->usulanDesa->desa->jalan as $jln)
                                         <option value="{{$jln->nm_jalan}}" <?php if($jln->nm_jalan == $detail->jalan)echo "selected";?> >{{$jln->nm_jalan}}</option>
                                         @endforeach
                                     </select>
-                                    <div class="input-field">
-                                        <div class="errorTxt2"></div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -88,6 +85,13 @@
                                     <label for="ket_lokasi">Keterangan Lokasi</label>
                                     <textarea class="materialize-textarea" id="ket_lokasi" name="ket_lokasi" data-error=".errorTxt4">{{$detail->ket_lokasi}}</textarea>
                                     <div class="errorTxt4"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="link_maps">Link Maps</label>
+                                    <textarea class="materialize-textarea" id="link_maps" name="link_maps" data-error=".errorTxt43">{{$detail->link_maps}}</textarea>
+                                    <div class="errorTxt43"></div>
                                 </div>
                             </div>
                             <div class="row">

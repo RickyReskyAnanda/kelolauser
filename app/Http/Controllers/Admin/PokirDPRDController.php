@@ -12,4 +12,11 @@ class PokirDPRDController extends Controller
     	$pokir = PokokPikiranDPRDModel::all();
     	return view('admin.admin.pokir.pokok-pikiran',compact('pokir'));
     }
+    public function konfirmasiPokokPikiran($id){
+    	$pokir = PokokPikiranDPRDModel::find($id);
+    	$pokir->sts = "Confirm";
+    	$pokir->save();
+
+    	return redirect()->back()->with('pesan','Status telah diperbaharui');
+    }
 }

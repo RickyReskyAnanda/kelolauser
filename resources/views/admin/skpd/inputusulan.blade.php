@@ -45,7 +45,7 @@
                         <div class="card-content">
                             <div class="card-content">
                                 <h5>{{$usulan->nama_pekerjaan}}</h5>
-                                <h5>Biaya Rp.{{$usulan->harga.'/'.$usulan->satuan}}</h5>
+                                <h5>Biaya Rp.{{number_format($usulan->harga).'/'.$usulan->satuan}}</h5>
                             </div>
                         </div>
                     </div>
@@ -68,9 +68,9 @@
                             </div>
                             <div class="row">
                                 <div class="col s12">
-                                    <label for="desa">Pilih Desa</label>
+                                    <label for="desa">Pilih Kampung</label>
                                     <select class="error browser-default" name="desa" id="desa" data-error=".errorTxt19">
-                                        <option value="" disabled selected>Pilih Desa</option>
+                                        <option value="" disabled selected>Pilih Kampung</option>
                                     </select>
                                     <div class="input-field">
                                         <div class="errorTxt19"></div>
@@ -112,12 +112,9 @@
                             <div class="row">
                                 <div class="col s12">
                                     <label for="jalan">Nama Jalan</label>
-                                    <select class="error browser-default"  name="jalan" id="jalan" data-error=".errorTxt21">
-                                        <option value="" disabled selected>Pilih Jalan</option>
+                                    <select class="browser-default"  name="jalan" id="jalan">
+                                        <option value="" selected>Pilih Jalan</option>
                                     </select>
-                                    <div class="input-field">
-                                        <div class="errorTxt21"></div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -301,7 +298,7 @@
 <script type="text/javascript">
     $('select[name=distrik]').change(function(){
         $.get("{{url('api/wilayah/desabydistrik')}}/"+$(this).val(),function(data, status){
-            $('select[name=desa]').html('<option value="" disabled selected>Pilih Desa</optional>');
+            $('select[name=desa]').html('<option value="" disabled selected>Pilih Kampung</optional>');
 
             if(data.length > 0){
                 data.forEach(function(value,index){
@@ -313,7 +310,7 @@
 
     $('select[name=desa]').change(function(){
         $.get("{{url('api/wilayah/jalanbydesa')}}/"+$(this).val(),function(data, status){
-            $('select[name=jalan]').html('<option value="" disabled selected>Pilih Jalan</optional>');
+            $('select[name=jalan]').html('<option value="" selected>Pilih Jalan</optional>');
 
             if(data.length > 0){
                 data.forEach(function(value,index){

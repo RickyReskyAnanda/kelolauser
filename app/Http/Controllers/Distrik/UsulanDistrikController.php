@@ -75,6 +75,7 @@ class UsulanDistrikController extends Controller
                 $skpd->cp_hp                 = $distrik->cp_hp;   
                 $skpd->sts_usulan            = 'DIPROSES SKPD'; 
                 $skpd->level                 = $distrik->level;
+                $skpd->keterangan_distrik    = $request->komentar;
                 $skpd->sts_rpjmd             = $distrik->sts_rpjmd;
                 $skpd->us_en                 = Auth::user()->name;
                 $skpd->us_ed                 = Auth::user()->name;
@@ -102,7 +103,7 @@ class UsulanDistrikController extends Controller
         $this->validate($request,[
                 'id_usul_distrik'   => 'required|numeric',
                 'volume'            => 'required|numeric',
-                'jalan'             => 'required',
+                'jalan'             => 'nullable',
                 'ket_nomor'         => 'required|numeric',
                 'ket_lokasi'        => 'required',
                 'link_maps'        => 'required',
@@ -146,7 +147,7 @@ class UsulanDistrikController extends Controller
         }
 
         return redirect('distrik/usulan/masuk')
-                ->with('pesan', 'Usulan '.$request->level.' telah ditambahkan !');
+                ->with('pesan', 'Usulan telah diperbaharui !');
     } 
 
 
@@ -191,7 +192,7 @@ class UsulanDistrikController extends Controller
             'id_kegiatan'   => 'required|numeric',
             'desa'          => 'required|numeric',
             'volume'        => 'required|numeric',
-            'jalan'         => 'required',
+            'jalan'         => 'nullable',
             'ket_nomor'     => 'required|numeric',
             'ket_lokasi'    => 'required',
             'link_maps'     => 'required',
@@ -203,7 +204,7 @@ class UsulanDistrikController extends Controller
             'cp_nama'       => 'required',
             'cp_alamat'     => 'required',
             'cp_telp'       => 'required',
-            'cp_hp'         => 'required',
+            'cp_hp'         => 'nullable',
         ]);
         $usulan = KamusUsulanModel::find($request->id_kegiatan);
         /*-----------------INPUT KE DESA--------------*/

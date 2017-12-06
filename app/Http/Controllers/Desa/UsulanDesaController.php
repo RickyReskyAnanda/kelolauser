@@ -42,7 +42,6 @@ class UsulanDesaController extends Controller
         $this->validate($request, [
             'id_kegiatan'   => 'required|numeric',
             'volume'        => 'required|numeric',
-            'jalan'         => 'required',
             'ket_nomor'     => 'required|numeric',
             'ket_lokasi'    => 'required',
             'link_maps'     => 'required',
@@ -166,7 +165,6 @@ class UsulanDesaController extends Controller
             'id_usul'   => 'required|numeric',
             'id_kegiatan'   => 'required|numeric',
             'volume'        => 'required|numeric',
-            'jalan'         => 'required',
             'ket_nomor'     => 'required|numeric',
             'ket_lokasi'    => 'required',
             'link_maps'     => 'required',
@@ -285,7 +283,7 @@ class UsulanDesaController extends Controller
         $distrik = new UsulanDistrikModel; 
         $distrik->id_user               = $desa->id_user;       
         $distrik->kd_distrik            = $kd_distrik->kd_distrik;     //dari relasi user
-        $distrik->kd_desa               = $distrik->kd_desa;     //dari relasi user
+        $distrik->kd_desa               = $desa->kd_desa;     //dari relasi user
         $distrik->id_usul_desa          = $desa->id_usul_desa;
         $distrik->id_keg                = $desa->id_keg;      
         $distrik->tipe_keg              = $desa->tipe_keg;      

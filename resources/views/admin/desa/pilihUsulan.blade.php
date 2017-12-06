@@ -65,7 +65,7 @@
                                         <tr>
                                             <td>{{$i++}}</td>
                                             <td>{{$val->nama_pekerjaan}}</td>
-                                            <td>{{$val->harga}}</td>
+                                            <td>Rp.{{number_format($val->harga)}}</td>
                                             <td>{{$val->satuan}}</td>
                                             <td>
                                                 <a href="{{url('desa/usulan/input/'.$val->id_kegiatan)}}" class="btn cyan waves-effect waves-light">Pilih
@@ -98,7 +98,7 @@
                                         <tr>
                                             <td>{{$i++}}</td>
                                             <td>{{$val->nama_pekerjaan}}</td>
-                                            <td>{{$val->harga}}</td>
+                                            <td>Rp.{{number_format($val->harga)}}</td>
                                             <td>{{$val->satuan}}</td>
                                             <td>
                                                 <a href="{{url('desa/usulan/input/'.$val->id_kegiatan)}}" class="btn cyan waves-effect waves-light">Pilih

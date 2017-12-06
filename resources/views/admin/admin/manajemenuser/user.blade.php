@@ -11,11 +11,11 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">Manajemen User {{ucfirst($level)}}</h5>
+                <h5 class="breadcrumbs-title">Manajemen User  <?php if($level == 'desa')echo "Kampung";else echo ucfirst($level);?></h5>
                 <ol class="breadcrumbs">
                     <li><a href="{{url('administrator')}}">Beranda</a></li>
                     <li>Manajemen User</li>
-                    <li class="active">{{ucfirst($level)}}</li>
+                    <li class="active"><?php if($level == 'desa')echo "Kampung";else echo ucfirst($level);?></li>
                 </ol>
             </div>
         </div>
@@ -45,7 +45,7 @@
                         <div id="table-datatables">
                             <div class="row">
                                 <div class="col s12">
-                                    <a href="{{url('administrator/manajemen-user/'.$level.'/tambah')}}" class="btn cyan waves-effect waves-light" type="submit" name="action" style="margin-bottom: 10px;">Tambah User {{ucfirst($level)}}
+                                    <a href="{{url('administrator/manajemen-user/'.$level.'/tambah')}}" class="btn cyan waves-effect waves-light" type="submit" name="action" style="margin-bottom: 10px;">Tambah User <?php if($level == 'desa')echo "Kampung";else echo ucfirst($level);?>
                                     </a>
                                 </div>
                             </div>

@@ -21,5 +21,5 @@
   <a href="{{url('distrik/usulan/pantau')}}" class="waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Pantau Usulan</a>
 </li>
 <li class="bold">
-  <a href="{{url('distrik/berita-acara')}}" class="waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Berita Acara</a>
+  <a href="{{url('distrik/berita-acara')}}" class="waves-effect waves-cyan"><i class="mdi-action-list"></i> Berita Acara</a>
 </li>

@@ -21,16 +21,13 @@ border:1px solid black;
 
 <body style="width: 760px ">
 <p align="center">BERITA  ACARA<br />
-  HASIL KESEPAKATAN  MUSRENBANG RKPD<br />
-  KABUPATEN YALIMO<br />
-  DI KECAMATAN  00001 TAHUN 2016</p>
+  KESEPAKATAN HASIL FORUM SKPD {{strtoupper($skpd_name)}}<br />
+  KABUPATEN YALIMO</p>
 <p align="center">&nbsp;</p>
-<p>Pada hari Selasa tanggal 17  Agustus 2018 bertempat di 
- jhjk j  jkkjkj kj kj kj k di Kecamatan  telah  diselenggarakan Musrenbang RKPD Kabupaten Yalimo di Kecamatan  yang dihadiri  pemangku kepentingan sesuai dengan daftar hadir peserta yang tercantum dalam LAMPIRAN  I berita acara ini.<br />
-  Setelah memperhatikan,  mendengar dan mempertimbangkan:</p>
+<p>Pada hari Kamis tanggal 19 bulan Januari Tahun 2018 telah diselenggarakan forum SKPD {{$skpd_name}} Kabupaten Yalimo yang dihadiri pemangku kepentingan sesuai dengan daftar hadir sesuai dengan daftar hadir sebagaimana tercantum dalam LAMPIRAN I berita acara ini.</p>
 <ol>
   
-<p>Pada Acara pembukaan Musrenbang Kecamatan</p>
+<p>Setelah memperhatikan, mendengar, dan mempertimbangkan:</p>
 
   <li>Materi dari SKPD {{$skpd_name}}</li>
   <li>Tanggapan  dan saran dari seluruh peserta Forum SKPD Kabupaten/Kota maka pada:</li>
@@ -42,11 +39,21 @@ border:1px solid black;
  <tr><td>Tempat </td><td>:</td><td>{{ucfirst($request->tempat)}}</td></tr>
 </table>
 </p>
+<p>Forum SKPD {{$skpd_name}} Kabupaten Yalimo tahun {{date('Y')}} :</p>
 <p style="margin-left: 10px">
 <table><tr><td colspan="3" style="text-align: center">MENYEPAKATI</td></tr>
-  <tr><td valign="top">KESATU</td><td valign="top">:</td><td>Pekerjaan  dan sasaran &nbsp;prioritas yang disertai  target dan kebutuhan pendanaan dalam Daftar Pekerjaan Prioritas Kecamatan asdas Kabupaten Yalimo Tahun 2017 sebagaimana  tercantum dalam LAMPIRAN II berita acara ini.</td></tr>
- <tr><td valign="top">KEDUA </td><td valign="top">:</td><td>Usulan  pekerjaan yang belum dapat diakomodir sebagai usulan Kecamatan dan usulan cadangan tercantum dalam LAMPIRAN III&nbsp; berita acara ini</td></tr>
- <tr><td valign="top"> KETIGA  </td><td valign="top">:</td><td>Hasil  sidang-sidang kelompok Musrenbang Kecamatan asdas Kabupaten Yalimo Tahun 2017 dan daftar&nbsp; hadir peserta Musrenbang Kecamatan sebagaimana  tercantum dalam Lampiran I, LAMPIRAN II dan LAMPIRAN III merupakan satu  kesatuan dan merupakan bagian yang tidak terpisahkan dari berita acara ini.</td></tr>
+  <tr>
+    <td valign="top">KESATU</td><td valign="top">:</td>
+    <td>Menyepakati program dan kegiatan prioritas, dan indikator kinerja yang disertai target dan kebutuhan pendanaan, yang telah diselaraskan dengan usulan kegiatan prioritas dari Musrenbang RKPD Kabupaten Yalimo di kecamatan.</td>
+  </tr>
+  <tr>
+    <td valign="top">KEDUA </td><td valign="top">:</td>
+    <td>Menyepakati daftar usulan Musrenbang Distrik sebagaimana tercantum dalam LAMPIRAN II berita acara ini.</td>
+  </tr>
+  <tr>
+    <td valign="top"> KETIGA  </td><td valign="top">:</td>
+    <td>Menyepakati berita acara ini beserta lampirannya (LAMPIRAN I,II), merupakan satu kesatuan dan merupakan bagian yang tidak terpisahkan dari berita acara hasil kesepakatan forum SKPD {{$skpd_name}} Kabupaten Yalimo ini.</td>
+  </tr>
  
  <tr><td valign="top"> KEEMPAT  </td><td valign="top">:</td><td>Untuk pekerjaan fisik, apabila lokasi yang diusulkan merupakan milik perorangan atau sedang dalam konflik gugatan, atau berada dalam perumahan yang prasarana, sarana, dan utilitas (PSU) belum diserah terimakan kepada Pemerintah Kabupaten Yalimo atau milik Instansi Lain (Kementrian/BUMD/BUMN) maka Pemerintah Kabupaten Yalimo dapat membatalkan usulan tersebut.</td>
  </tr>
@@ -85,12 +92,12 @@ border:1px solid black;
       <br>(_______________)
     </td>
     <td width="50%"></td>
-    <td align="center">Yalimo, Selasa,17  Agustus 2018 <br>Pimpinan Sidang <br><br><br><br>(  jhjhjh)</td>
+    <td align="center">Yalimo, {{$request->hari}}, {{$request->tanggal}} <br>Pimpinan Sidang <br><br><br><br>({{$request->pimpinan_sidang}})</td>
   </tr>
 </table>
 
 
-<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/>
 
 
 <DIV style="page-break-after:always"></DIV>
@@ -100,7 +107,7 @@ border:1px solid black;
   <tr>
     <td></td>
     <td width="50%"></td>
-    <td nowrap=""  valign="top">LAMPIRAN I : </td>
+    <td nowrap=""  valign="top">LAMPIRAN II : </td>
     <td>Berita Acara Kesepakatan Hasil Forum SKPD {{$skpd_name}}  </td>
   </tr>
   <tr>
@@ -127,24 +134,33 @@ border:1px solid black;
 
 <!-- mulai dari sini looping -->
 
-@foreach($usulan as $usul)
+@foreach($distrik as $dst)
 
 <p style="margin-left: 10px">
-<table width="100%"><tr><td colspan="3" style="text-align: center"><h4> DAFTAR USULAN MUSRENBANG<br> SKPD {{strtoupper($skpd_name)}}<br> Kecamatan : ___ <br>
+<table width="100%"><tr><td colspan="3" style="text-align: center"><h4> DAFTAR USULAN MUSRENBANG<br> SKPD {{strtoupper($skpd_name)}}<br> Distrik : {{ucwords($dst->nm_distrik)}} <br>
 Tahun {{date('Y')}}</h4>  </td></tr>
 </table>
  <table width="100%" cellpadding="5px" cellspacing="0px"    bordercolordark ="white" class="tabel">
-  <tr bgcolor="#e7de45"><td nowrap="" >No </td><td>Pengusul</td><td>Usulan</td><td>Lokasi</td><td>Keterangan</td><td>Volume</td><td>Catatan Kecamatan-SKPD</td><td>Biaya</td></tr>
-    <tr>
-      <td>1 </td>
-      <td>Kampung yahimo</td>
-      <td>Pembuatan Taman</td>
-      <td>Jln. Supratman Sumiharjo (kakasdkkasdkllk)</td>
-      <td>klalkl slaslk</td>
-      <td>111/cm</td>
-      <td>karena ndak tw</td>
-      <td>Rp.111,000,000</td>
-    </tr>
+  <tr bgcolor="#e7de45"><td nowrap="" >No </td><td>Pengusul</td><td>Usulan</td><td>Lokasi</td><td>Keterangan</td><td>Volume</td><td>Catatan Distrik-SKPD</td><td>Biaya</td></tr>
+    <?php $i=1;?>
+  @foreach($dst->usulanSKPD as $usulanskpd)
+  @if($usulanskpd->sts_usulan == "SETUJU" && $usulanskpd->level == "UTAMA")
+  <tr>
+    <td>{{$i++}}</td>
+    <td>Kampung {{$usulanskpd->desa->nm_desa}}</td>
+    <td>{{$usulanskpd->nama_pekerjaan}}</td>
+    <td>{{$usulanskpd->jalan}}<br/>({{$usulanskpd->ket_lokasi}})</td>
+    <td>{{$usulanskpd->keterangan}}</td>
+    <td>{{$usulanskpd->volume}}</td>
+    <td>Distrik: {{$usulanskpd->keterangan_distrik}}<br/>
+        SKPD: {{$usulanskpd->keterangan_skpd}}</td>
+    <td>
+      {{$usulanskpd->volume.'X'.number_format($usulanskpd->harga).'/'.$usulanskpd->satuan}}<br>
+      <b>Hasil: </b> Rp.<?=number_format($usulanskpd->volume*$usulanskpd->harga)?>
+    </td>
+  </tr>
+  @endif
+  @endforeach
   </table>
 <br>
 
@@ -152,12 +168,30 @@ Tahun {{date('Y')}}</h4>  </td></tr>
 
 
 <p style="margin-left: 10px">
-<table width="100%"><tr><td colspan="3" style="text-align: center"><h4> DAFTAR USULAN CADANGAN MUSRENBANG<br> SKPD {{strtoupper($skpd_name)}}<br> Kecamatan : ___ <br>
+<table width="100%"><tr><td colspan="3" style="text-align: center"><h4> DAFTAR USULAN CADANGAN MUSRENBANG<br> SKPD {{strtoupper($skpd_name)}}<br> Distrik : {{ucwords($dst->nm_distrik)}} <br>
 Tahun {{date('Y')}}</h4>  </td></tr>
 </table>
 
 <table width="100%" cellpadding="5px" cellspacing="0px"    bordercolordark ="white" class="tabel">
-  <tr bgcolor="#e7de45"><td nowrap="" >No </td><td>Pengusul</td><td>Usulan</td><td>Lokasi</td><td>Keterangan</td><td>Volume</td><td>Catatan Kecamatan-SKPD</td><td>Biaya</td></tr>
+  <tr bgcolor="#e7de45"><td nowrap="" >No </td><td>Pengusul</td><td>Usulan</td><td>Lokasi</td><td>Keterangan</td><td>Volume</td><td>Catatan Distrik-SKPD</td><td>Biaya</td></tr>
+  <?php $i=1;?>
+  @foreach($dst->usulanSKPD as $usulanskpd)
+  @if($usulanskpd->sts_usulan == "SETUJU" && $usulanskpd->level == "CADANGAN")
+  <tr>
+    <td>{{$i++}}</td>
+    <td>Kampung {{$usulanskpd->desa->nm_desa}}</td>
+    <td>{{$usulanskpd->nama_pekerjaan}}</td>
+    <td>{{$usulanskpd->jalan}}<br/>({{$usulanskpd->ket_lokasi}})</td>
+    <td>{{$usulanskpd->keterangan}}</td>
+    <td>{{$usulanskpd->volume}}</td>
+    <td>{{$usulanskpd->keterangan_distrik}}</td>
+    <td>
+      {{$usulanskpd->volume.'X'.number_format($usulanskpd->harga).'/'.$usulanskpd->satuan}}<br>
+      <b>Hasil : </b> Rp.<?=number_format($usulanskpd->volume*$usulanskpd->harga)?>
+    </td>
+  </tr>
+  @endif
+  @endforeach
 </table>
 </p>
 
@@ -167,7 +201,7 @@ Tahun {{date('Y')}}</h4>  </td></tr>
     
 <table>
   <tr>
-    <td colspan="3">Catatan: Perubahan dan lain-lain adalah sebagai berikutasdfasdfkjasdfhkajdcksad skadfjhsakdjfh kadshf ksadhf kdsfjk dfjh adsfh kdkjfhsjfh ksadfh jksfh kjsafhadsjfh </td>
+    <td colspan="3">Catatan: Perubahan Usulan Cadangan Menjadi Usulan Utama akan Dilaksanakan dengan Sisa Pagu Kelurahan. </td>
   </tr>
   <tr>
     <td height="10px"></td>
@@ -175,7 +209,7 @@ Tahun {{date('Y')}}</h4>  </td></tr>
   <tr>
     <td width="30%"></td>
     <td width="30%"></td>
-    <td width="30%">Surabaya, Kamis, 19 Desember 2017</td>
+    <td width="30%">Yalimo, {{$request->hari}}, {{$request->tanggal}}</td>
   </tr>
   <tr>
     <td height="10px"></td>
@@ -183,10 +217,14 @@ Tahun {{date('Y')}}</h4>  </td></tr>
   <tr>
     <td width="30%" align="center" valign="top">{{strtoupper($skpd_name)}} <br><br><br><br><br>(____________________________)</td>
     <td width="30%" valign="top">
-      <center>Delegasi Kecamatan</center>
-      <br> 1. Muh juanda <br> 2. Bukan Muh Juanda <br> 3. Bukan Lagi Muh Juanda B</td>
+      <center>Delegasi Distrik</center>
+      @for($i=1;$i<=10;$i++)
+      <br> {{$i}}. .................................................
+      <br>.....................................................
+      <br>
+      @endfor
     </td>
-    <td width="30%" align="center" valign="top">Kecamatan <br><br><br><br><br><br>(____________________________)</td>
+    <td width="30%" align="center" valign="top">Distrik <br><br><br><br><br><br>(____________________________)</td>
   </td>
   </tr>
 </table>

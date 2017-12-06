@@ -11,11 +11,11 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">Edit User {{ucfirst($level)}}</h5>
+                <h5 class="breadcrumbs-title">Edit User <?php if($level == 'desa')echo "Kampung";else echo ucfirst($level);?></h5>
                 <ol class="breadcrumbs">
                     <li><a href="{{url('administrator')}}">Beranda</a></li>
                     <li>Manajemen User</li>
-                    <li class="active">Edit User {{ucfirst($level)}}</li>
+                    <li class="active">Edit User <?php if($level == 'desa')echo "Kampung";else echo ucfirst($level);?></li>
                 </ol>
             </div>
         </div>
@@ -95,9 +95,9 @@
                             @elseif($level=='desa')
                             <div class="row">
                                 <div class="col s12">
-                                    <label for="desa">Desa</label>
+                                    <label for="desa">Kampung</label>
                                     <select class="error browser-default" id="desa" name="desa" data-error=".errorTxt5">
-                                        <option value="" disabled selected>Pilih Desa</option>
+                                        <option value="" disabled selected>Pilih Kampung</option>
                                         @foreach($distrik as $dist)
                                         <optgroup label="{{$dist->nm_distrik}}">
                                             @foreach($dist->desa as $ds)

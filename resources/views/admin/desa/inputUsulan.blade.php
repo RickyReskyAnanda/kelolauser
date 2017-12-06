@@ -57,7 +57,7 @@
                         <div class="card-content">
                             <div class="card-content">
                                 <h5>{{$usulan->nama_pekerjaan}}</h5>
-                                <h5>Biaya Rp.{{$usulan->harga.'/'.$usulan->satuan}}</h5>
+                                <h5>Biaya Rp.{{number_format($usulan->harga).'/'.$usulan->satuan}}</h5>
                             </div>
                         </div>
                     </div>
@@ -99,15 +99,12 @@
                             <div class="row">
                                 <div class="col s12">
                                     <label for="jalan">Nama Jalan</label>
-                                    <select class="error browser-default"  name="jalan" id="jalan" data-error=".errorTxt21">
-                                        <option value="" disabled selected>Nama Jalan</option>
+                                    <select class="error browser-default"  name="jalan" id="jalan">
+                                        <option value="" selected>Nama Jalan</option>
                                         @foreach($jalan as $jln)
                                         <option value="{{$jln->nm_jalan}}">{{$jln->nm_jalan}}</option>
                                         @endforeach
                                     </select>
-                                    <div class="input-field">
-                                        <div class="errorTxt21"></div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="row">

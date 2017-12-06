@@ -86,7 +86,7 @@
                                                 <tr>
                                                     <td><?=$i++?></td>
                                                     <td><?=$val->nama_pekerjaan?></td>
-                                                    <td><?=$val->harga?></td>
+                                                    <td>Rp.<?=number_format($val->harga)?></td>
                                                     <td><?=$val->satuan?></td>
                                                     <td><?=$val->skpd_pelaksana?></td>
                                                     <td>
@@ -127,7 +127,7 @@
                                                 <tr>
                                                     <td><?=$i++?></td>
                                                     <td><?=$val->nama_pekerjaan?></td>
-                                                    <td><?=$val->harga?></td>
+                                                    <td>Rp.<?=number_format($val->harga)?></td>
                                                     <td><?=$val->satuan?></td>
                                                     <td><?=$val->skpd_pelaksana?></td>
                                                     <td>

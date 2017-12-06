@@ -4,7 +4,6 @@ $("#inputusulan").validate({
         volume: {
             required: true
         },
-        jalan:"required",
         ket_nomor: {
             required: true
         },
@@ -36,9 +35,7 @@ $("#inputusulan").validate({
         volume: {
             required: "Masukkan Volume"
         },
-        jalan: {
-            required: "Pilih Jalan"
-        },
+        
         ket_nomor: {
             required: "Masukkan Keterangan Nomor"
         },
@@ -62,6 +59,54 @@ $("#inputusulan").validate({
         },
         cp_telp: {
             required: "Masukkan Nomor Telpon Kontak"
+        },
+    },
+    errorElement : 'div',
+    errorPlacement: function(error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+});
+
+
+$("#formakun").validate({
+    rules: {
+        old_pass: {
+            required: true,
+            minlength:6,
+            maxlength:32,
+        },
+        new_pass: {
+            required: true,
+            minlength:6,
+            maxlength:32,
+        },
+        confirm_pass: {
+            required: true,
+            minlength:6,
+            maxlength:32,
+        },
+    },
+    //For custom messages
+    messages: {
+        old_pass: {
+            required: "Masukkan Password Lama Anda",
+            minlength: "Masukkan Password Lama Minimal 6 karakter",
+            maxlength: "Masukkan Password Lama Maksimal 32 karakter",
+        },
+        new_pass: {
+            required: "Masukkan Password Baru Anda",
+            minlength: "Masukkan Password Baru Minimal 6 karakter",
+            maxlength: "Masukkan Password Baru Maksimal 32 karakter",
+        },
+        confirm_pass: {
+            required: "Masukkan Password Konfirmasi Anda",
+            minlength: "Masukkan Password Konfirmasi Minimal 6 karakter",
+            maxlength: "Masukkan Password Konfirmasi Maksimal 32 karakter",
         },
     },
     errorElement : 'div',

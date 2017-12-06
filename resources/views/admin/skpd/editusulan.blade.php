@@ -13,8 +13,8 @@
             <div class="col s12 m12 l12">
                 <h5 class="breadcrumbs-title">Edit Usulan Masuk</h5>
                 <ol class="breadcrumbs">
-                    <li><a href="{{url('desa')}}">Beranda</a></li>
-                    <li><a href="{{url('desa/usulan')}}">Usulan</a></li>
+                    <li><a href="{{url('skpd')}}">Beranda</a></li>
+                    <li>Usulan</li>
                     <li class="active">Input Usulan Desa</li>
                 </ol>
             </div>

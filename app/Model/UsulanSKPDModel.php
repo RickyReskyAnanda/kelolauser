@@ -23,4 +23,12 @@ class UsulanSKPDModel extends Model
 	public function kamusUsulan(){
 		return $this->hasOne('App\Model\KamusUsulanModel','id_kegiatan', 'id_keg');
 	}
+
+	public function distrik(){
+		return $this->hasOne('App\Model\DistrikModel','kd_distrik','kd_distrik');
+	}
+
+	public function desa(){
+		return $this->hasOne('App\Model\DesaModel','kd_desa', 'kd_desa');
+	}
 }

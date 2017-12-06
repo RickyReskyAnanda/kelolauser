@@ -32,19 +32,19 @@ class GuestController extends Controller
     }
     public function postAkun(Request $request){
     	$this->validate($request,[
-            'password' 		=> 'required|min:6|max:32',
-            'konfirmasi' 	=> 'required|min:6|max:32'
+            'old_pass' 		=> 'required|min:6|max:32',
+            'new_pass'  => 'required|min:6|max:32',
+            'confirm_pass' 	=> 'required|min:6|max:32'
         ]);
 
-    	if($request->password == $request->konfirmasi){
-	    	$user = User::find(Auth::user()->id);
-	    	$user->password = $request->password;
-			$user->save();	    
-			return redirect()->back()->with('pesan', 'Password berhasil diperbaharui !');
-		}else{
-			return redirect()->back()->with('gagal', 'Password dan konfirmasi password tidak sama !')->withInput($request->only('password', 'remember'));
-		}
-
+    	$user = User::find(Auth::user()->id);
+            if($request->new_pass == $request->confirm_pass){
+    	    	$user->password = bcrypt($request->new_pass);
+    			$user->save();	    
+    			return redirect()->back()->with('pesan', 'Password berhasil diperbaharui !');
+    		}else{
+    			return redirect()->back()->with('gagal', 'Password dan konfirmasi password tidak sama !')->withInput($request->only('new_pass', 'remember'));
+    		}
     }
 
     public function viewAspirasiMasyarakat(){

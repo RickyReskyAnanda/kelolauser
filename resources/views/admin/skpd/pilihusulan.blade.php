@@ -19,7 +19,7 @@
             <div class="col s12 m12 l12">
                 <h5 class="breadcrumbs-title">Usulan</h5>
                 <ol class="breadcrumbs">
-                    <li><a href="{{url('/desa')}}">Beranda</a></li>
+                    <li><a href="{{url('skpd')}}">Beranda</a></li>
                     <li class="active">Usulan</li>
                 </ol>
             </div>
@@ -65,7 +65,7 @@
                                         <tr>
                                             <td>{{$i++}}</td>
                                             <td>{{$val->nama_pekerjaan}}</td>
-                                            <td>{{$val->harga}}</td>
+                                            <td>Rp.{{number_format($val->harga)}}</td>
                                             <td>{{$val->satuan}}</td>
                                             <td>
                                                 <a href="{{url('skpd/usulan/input/'.$val->id_kegiatan)}}" class="btn cyan waves-effect waves-light">Pilih
@@ -98,7 +98,7 @@
                                         <tr>
                                             <td>{{$i++}}</td>
                                             <td>{{$val->nama_pekerjaan}}</td>
-                                            <td>{{$val->harga}}</td>
+                                            <td>Rp. {{number_format($val->harga)}}</td>
                                             <td>{{$val->satuan}}</td>
                                             <td>
                                                 <a href="{{url('skpd/usulan/input/'.$val->id_kegiatan)}}" class="btn cyan waves-effect waves-light">Pilih

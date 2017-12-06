@@ -83,7 +83,7 @@
                                                 </div>
                                                 <div class="card amber lighten-3">
                                                     <div class="card-content">
-                                                        <b>Desa: </b><br>
+                                                        <b>Kampung: </b><br>
                                                         {{$val->usulanDesa->desa->nm_desa}}
                                                     </div>
                                                 </div>

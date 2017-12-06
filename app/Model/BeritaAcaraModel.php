@@ -23,4 +23,8 @@ class BeritaAcaraModel extends Model
 	public function delegasi(){
 		return $this->hasMany('App\Model\BeritaAcaraDelegasiModel','id_ba', 'id_ba');
 	}
+
+	public function distrik(){
+		return $this->hasOne('App\Model\DistrikModel','kd_distrik','kd_distrik');
+	}
 }

@@ -41,12 +41,12 @@
                 @endif
 
 
-                <form class="col s12" method="post" action="{{url('desa/usulan/edit')}}" enctype="multipart/form-data">
+                <form class="col s12 formValidate" id="inputusulan" method="post" action="{{url('desa/usulan/edit')}}" enctype="multipart/form-data">
                     <div class="card">
                         <div class="card-content">
                             <div class="card-content">
                                 <h5>{{$usulan->nama_pekerjaan}}</h5>
-                                <h5>Biaya Rp.{{$usulan->harga.'/'.$usulan->satuan}}</h5>
+                                <h5>Biaya Rp.{{number_format($usulan->harga).'/'.$usulan->satuan}}</h5>
                             </div>
                         </div>
                     </div>
@@ -55,66 +55,64 @@
                     <input type="hidden" name="id_kegiatan" value="{{$usulan->id_kegiatan}}">
                     <div class="card">
                         <div class="card-content">
-                            <div class="card-content">
-                                <div class="row">
-                                <div class="input-field col s12">
-                                    <select name="level_usulan" required>
-                                        <option value="" disabled selected>Pilih Level Usulan</option>
-                                        <option value="UTAMA" <?php if($detail->level == 'UTAMA')echo "selected";?>>UTAMA</option>
-                                        <option value="CADANGAN" <?php if($detail->level == 'CADANGAN')echo "selected";?>>CADANGAN</option>
-                                    </select>
-                                    <label>Level Usulan</label>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input type="number" name="volume" value="{{$detail->volume}}" required>
-                                    <label>Jumlah atau Volume</label>
+                                    <label for="volume">Jumlah atau Volume</label>
+                                    <input type="number" name="volume" id="volume"  value="{{$detail->volume}}" data-error=".errorTxt12">
+                                    <div class="errorTxt12"></div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="input-field col s12">
-                                    <select name="jalan" required>
-                                        <option value="" disabled selected>Nama Jalan</option>
+                                <div class=" col s12">
+                                    <label for="jalan">Nama Jalan</label>
+                                    <select name="jalan" class="browser-default" id="jalan">
+                                        <option value="" selected>Nama Jalan</option>
                                         @foreach($jalan as $jln)
                                         <option value="{{$jln->nm_jalan}}" <?php if($jln->nm_jalan == $detail->jalan)echo "selected";?> >{{$jln->nm_jalan}}</option>
                                         @endforeach
                                     </select>
-                                    <label>Nama Jalan</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input type="number" name="ket_nomor" value="{{$detail->ket_nomor}}" required>
-                                    <label>Nomor</label>
+                                    <label for="ket_nomor">Nomor</label>
+                                    <input type="number" id="ket_nomor" name="ket_nomor" value="{{$detail->ket_nomor}}" data-error=".errorTxt3">
+                                    <div class="errorTxt3"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <textarea class="materialize-textarea" name="ket_lokasi" required>{{$detail->ket_lokasi}}</textarea>
-                                    <label>Keterangan Lokasi</label>
+                                    <label for="ket_lokasi">Keterangan Lokasi</label>
+                                    <textarea class="materialize-textarea" id="ket_lokasi" name="ket_lokasi" data-error=".errorTxt4">{{$detail->ket_lokasi}}</textarea>
+                                    <div class="errorTxt4"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <select name="status_lahan" required>
+                                    <label for="link_maps">Link Maps</label>
+                                    <textarea class="materialize-textarea" id="link_maps" name="link_maps" data-error=".errorTxt43">{{$detail->link_maps}}</textarea>
+                                    <div class="errorTxt43"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                    <label for="status_lahan">Status Lahan</label>
+                                    <select class="error browser-default" name="status_lahan" id="status_lahan" data-error=".errorTxt41">
                                         <option value="" disabled selected>Status Lahan</option>
                                         <option <?php if($detail->status_lahan == "Milik Pemerintah Kota")echo"selected";?>>Milik Pemerintah Kota</option>
                                         <option <?php if($detail->status_lahan == "Milik Instansi Lain")echo"selected";?>>Milik Instansi Lain</option>
                                         <option <?php if($detail->status_lahan == "Milik Warga")echo"selected";?>>Milik Warga</option>
                                     </select>
-                                    <label>Status Lahan</label>
+                                    <div class="input-field">
+                                        <div class="errorTxt41"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <textarea class="materialize-textarea" name="keterangan">{{$detail->keterangan}}</textarea>
-                                    <label>Keterangan Kebutuhan</label>
+                                    <label for="keterangan">Keterangan Kebutuhan</label>
+                                    <textarea class="materialize-textarea" id="keterangan" name="keterangan" data-error=".errorTxt5">{{$detail->keterangan}}</textarea>
+                                    <div class="errorTxt5"></div>
                                 </div>
                             </div>
                         </div>
@@ -211,26 +209,29 @@
                         <div class="card-content">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input type="text" name="cp_nama" value="{{$detail->cp_nama}}" required>
-                                    <label>Nama</label>
+                                    <label for="cp_nama">Nama</label>
+                                    <input type="text" name="cp_nama"  value="{{$detail->cp_nama}}" id="cp_nama" data-error=".errorTxt6">
+                                    <div class="errorTxt6"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input type="text" name="cp_alamat" value="{{$detail->cp_alamat}}" required>
-                                    <label>Alamat</label>
+                                    <label for="cp_alamat" >Alamat</label>
+                                    <input type="text" name="cp_alamat" id="cp_alamat" value="{{$detail->cp_alamat}}"  data-error=".errorTxt7">
+                                    <div class="errorTxt7"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input type="number" name="cp_telp" value="{{$detail->cp_telp}}" required>
-                                    <label>Telpon</label>
+                                    <label for="cp_telp">Telpon</label>
+                                    <input type="number" name="cp_telp" id="cp_telp"  value="{{$detail->cp_telp}}" data-error=".errorTxt8">
+                                    <div class="errorTxt8"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input type="number" name="cp_hp" value="{{$detail->cp_hp}}" required>
-                                    <label>HP</label>
+                                    <input type="number" name="cp_hp" value="{{$detail->cp_hp}}">
+                                    <label>HP (optional)</label>
                                 </div>
                             </div>
                             <div class="row">

@@ -11,11 +11,11 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">Desa</h5>
+                <h5 class="breadcrumbs-title">Kampung</h5>
                 <ol class="breadcrumbs">
                     <li><a href="{{url('administrator')}}">Beranda</a></li>
                     <li>Data Master</li>
-                    <li class="active">Desa</li>
+                    <li class="active">Kampung</li>
                 </ol>
             </div>
         </div>
@@ -45,7 +45,7 @@
                         <div id="table-datatables">
                             <div class="row">
                                 <div class="col s12">
-                                    <a href="{{url('administrator/data-master/desa/tambah')}}" class="btn cyan waves-effect waves-light" type="submit" name="action" style="margin-bottom: 10px;">Tambah Desa
+                                    <a href="{{url('administrator/data-master/desa/tambah')}}" class="btn cyan waves-effect waves-light" type="submit" name="action" style="margin-bottom: 10px;">Tambah Kampung
                                     </a>
                                 </div>
                             </div>
@@ -57,8 +57,8 @@
                                     <thead>
                                         <th>Kode Distrik</th>
                                         <th>Nama Distrik</th>
-                                        <th>Kode Desa</th>
-                                        <th>Nama Desa</th>
+                                        <th>Kode Kampung</th>
+                                        <th>Nama Kampung</th>
                                         <th>Tanggal Edit</th>
                                         <th>Tanggal Input</th>
                                         <th>Status</th>
@@ -70,8 +70,8 @@
                                     <tfoot>
                                         <th>Kode Distrik</th>
                                         <th>Nama Distrik</th>
-                                        <th>Kode Desa</th>
-                                        <th>Nama Desa</th>
+                                        <th>Kode Kampung</th>
+                                        <th>Nama Kampung</th>
                                         <th>Tanggal Edit</th>
                                         <th>Tanggal Input</th>
                                         <th>Status</th>

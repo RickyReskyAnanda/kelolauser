@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\SKPDModel;
 use App\Model\UsulanSKPDModel;
+use App\Model\DistrikModel;
 use Auth;
 
 class BASKPDController extends Controller
@@ -28,9 +29,25 @@ class BASKPDController extends Controller
 
     	$skpd = SKPDModel::where('id_skpd',Auth::user()->kode_wilayah)->first();
 
-    	$skpd_name = $skpd->nm_skpd;
+        $skpd_name = $skpd->nm_skpd;
+
+
+        /*data kode wilayah yang mengajukan*/
+        $distrik = UsulanSKPDModel::select('kd_distrik')
+                     ->where('sts_usulan','SETUJU')
+                     ->groupBy('kd_distrik')
+                     ->get();
+
+        $distrik2 = array();
+        $i=0;
+        foreach ($distrik as $dst) {
+            $distrik2[$i]=$dst->kd_distrik;
+        }
+
+        $distrik = DistrikModel::whereIn('kd_distrik',$distrik2)->get();
+
     	$usulan = UsulanSKPDModel::where('skpd_pelaksana',$skpd->nm_skpd)->get();
 
-    	return view('admin.skpd.cetakba',compact('request','usulan','skpd_name'));
+    	return view('admin.skpd.cetakba',compact('request','distrik','skpd_name'));
     }
 }

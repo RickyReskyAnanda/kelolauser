@@ -13,8 +13,8 @@
             <div class="col s12 m12 l12">
                 <h5 class="breadcrumbs-title">Input Usulan</h5>
                 <ol class="breadcrumbs">
-                    <li><a href="{{url('desa')}}">Beranda</a></li>
-                    <li><a href="{{url('desa/usulan')}}">Usulan</a></li>
+                    <li><a href="{{url('distrik')}}">Beranda</a></li>
+                    <li><a href="{{url('distrik/usulan/masuk')}}">Usulan</a></li>
                     <li class="active">Input Usulan</li>
                 </ol>
             </div>
@@ -46,18 +46,18 @@
                         <div class="card-content">
                             <div class="card-content">
                                 <h5>{{$usulan->nama_pekerjaan}}</h5>
-                                <h5>Biaya Rp.{{$usulan->harga.'/'.$usulan->satuan}}</h5>
+                                <h5>Biaya Rp.{{number_format($usulan->harga).'/'.$usulan->satuan}}</h5>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-content">
-                            <h6><strong>Pilih Desa</strong></h6>
+                            <h6><strong>Pilih Kampung</strong></h6>
                             <div class="row">
                                 <div class="col s12">
-                                    <label for="desa">Pilih Desa</label>
+                                    <label for="desa">Pilih Kampung</label>
                                     <select class="error browser-default" name="desa" id="desa" data-error=".errorTxt19">
-                                        <option value="" disabled selected>Pilih Desa</option>
+                                        <option value="" disabled selected>Pilih Kampung</option>
                                         @foreach($desa as $ds)
                                         <option value="{{$ds->kd_desa}}">{{strtoupper($ds->nm_desa)}}</option>
                                         @endforeach
@@ -103,12 +103,9 @@
                             <div class="row">
                                 <div class="col s12">
                                     <label for="jalan">Nama Jalan</label>
-                                    <select class="error browser-default"  name="jalan" id="jalan" data-error=".errorTxt21">
-                                        <option value="" disabled selected>Pilih Jalan</option>
+                                    <select class=" browser-default"  name="jalan" id="jalan">
+                                        <option value="" selected>Pilih Jalan</option>
                                     </select>
-                                    <div class="input-field">
-                                        <div class="errorTxt21"></div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="row">

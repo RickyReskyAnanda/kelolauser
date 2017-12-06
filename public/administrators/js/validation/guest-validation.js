@@ -95,3 +95,5 @@ $("#formaspirasi").validate({
       }
     }
 });
+
+

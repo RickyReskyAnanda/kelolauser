@@ -13,7 +13,7 @@
             <div class="col s12 m12 l12">
                 <h5 class="breadcrumbs-title">Edit Usulan</h5>
                 <ol class="breadcrumbs">
-                    <li><a href="{{url('administrator')}}">Dashboard</a></li>
+                    <li><a href="{{url('administrator')}}">Beranda</a></li>
                     <li><a href="{{url('administrator/kamus-usulan')}}">Kamus Usulan</a></li>
                     <li class="active">Edit Usulan</li>
                 </ol>

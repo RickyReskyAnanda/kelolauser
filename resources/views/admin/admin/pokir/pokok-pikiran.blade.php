@@ -54,7 +54,7 @@
                                         <th>Lokasi</th>
                                         <th>SKPD Terkait</th>
                                         <th>Keterangan</th>
-                                        <th>Aksi</th>
+                                        <th>Status</th>
                                     </thead>
                                     <tbody>
                                         <?php $i=1;?>
@@ -68,7 +68,11 @@
                                                 <td>{{$pkr->skpd_pelaksana}}</td>
                                                 <td>{{$pkr->ket}}</td>
                                                 <td>
-                                                    <a class="btn cyan" href="{{url('administrator/pokok-pikiran/'.strtolower($pkr->sts).'/'.$pkr->id_pokir)}}">{{$pkr->sts}}</a>
+                                                    @if($pkr->sts == 'Confirm')
+                                                    <b>Telah Dikonfirmasi</b>
+                                                    @else
+                                                    <a class="btn cyan" href="{{url('administrator/pokok-pikiran/konfirmasi/'.$pkr->id_pokir)}}">Konfirmasi</a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach

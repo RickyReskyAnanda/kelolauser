@@ -10,7 +10,7 @@ $("#formpencarian").validate({
             required: "Pilih Distrik",
         },
         desa: {
-            required: "Pilih Desa",
+            required: "Pilih Kampung",
         },
         tipe: {
             required: "Pilih Tipe Pekerjaan",
@@ -56,7 +56,6 @@ $("#editusulan").validate({
         volume: {
             required: true,
         },
-        jalan:"required",
         ket_nomor: {
             required: true,
         },
@@ -73,9 +72,7 @@ $("#editusulan").validate({
         volume: {
             required: "Masukkan Volume",
         },
-        jalan: {
-            required: "Pilih Jalan",
-        },
+        
         ket_nomor: {
             required: "Masukkan Keterangan Nomor",
         },
@@ -108,7 +105,6 @@ $("#inputusulan").validate({
         volume: {
             required: true
         },
-        jalan:"required",
         ket_nomor: {
             required: true
         },
@@ -139,7 +135,7 @@ $("#inputusulan").validate({
             required: "Pilih Distrik"
         },
         desa: {
-            required: "Pilih Desa"
+            required: "Pilih Kampung"
         },
         level_usulan: {
             required: "Pilih Level Usulan"
@@ -147,9 +143,7 @@ $("#inputusulan").validate({
         volume: {
             required: "Masukkan Volume"
         },
-        jalan: {
-            required: "Pilih Jalan"
-        },
+        
         ket_nomor: {
             required: "Masukkan Keterangan Nomor"
         },
@@ -173,6 +167,70 @@ $("#inputusulan").validate({
         },
         cp_telp: {
             required: "Masukkan Nomor Telpon Kontak"
+        },
+    },
+    errorElement : 'div',
+    errorPlacement: function(error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+});
+
+
+$("#inputba").validate({
+    rules: {
+        no_ba:{
+            required:true
+        },
+        tgl_ba:{
+            required:true
+        },
+        pemateri_lain:{
+            required:true
+        },
+        pimpinan_sidang:{
+            required:true
+        },
+        hari:"required",
+        tanggal:{
+            required:true
+        },
+        waktu:{
+            required:true
+        },
+        tempat:{
+            required:true
+        },
+    },
+    //For custom messages
+    messages: {
+        no_ba:{
+            required:"Masukkan Nomor Berita Acara"
+        },
+        tgl_ba:{
+            required:"Masukkan Tanggal Berita Acara"
+        },
+        pemateri_lain:{
+            required:"Masukkan Nama Pemateri Lainnya"
+        },
+        pimpinan_sidang:{
+            required:"Masukkan Nama Pimpinan Sidang"
+        },
+        hari:{
+            required:"Pilih Hari"
+        },
+        tanggal:{
+            required:"Masukkan Tanggal Pelaksanaan"
+        },
+        waktu:{
+            required:"Masukkan Waktu Pelaksanaan"
+        },
+        tempat:{
+            required:"Masukkan Tempat Pelaksanaan"
         },
     },
     errorElement : 'div',

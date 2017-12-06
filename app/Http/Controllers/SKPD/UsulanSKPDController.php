@@ -12,6 +12,7 @@ use App\Model\KamusUsulanModel;
 use App\Model\UsulanDesaModel;
 use App\Model\UsulanDistrikModel;
 use App\Model\UsulanSKPDModel;
+use App\Model\UsulanBappedaModel;
 use FIle;
 use Image;
 use Auth;
@@ -49,6 +50,47 @@ class UsulanSKPDController extends Controller
         $skpd = UsulanSKPDModel::find($request->id_usul_skpd);
         if($request->persetujuan == 'terima'){
 	    	$skpd->sts_usulan = 'SETUJU';
+
+            $bappeda = new UsulanBappedaModel;
+            $bappeda->id_user               = $skpd->id_user;
+
+            $bappeda->id_skpd               = Auth::user()->kode_wilayah;     //dari user
+            $bappeda->kd_distrik            = $skpd->kd_distrik;     
+            $bappeda->kd_desa               = $skpd->kd_desa;     
+            $bappeda->id_usul_desa          = $skpd->id_usul_desa;
+            $bappeda->id_keg                = $skpd->id_keg;      
+            $bappeda->tipe_keg              = $skpd->tipe_keg;      
+            $bappeda->bidang_urusan         = $skpd->bidang_urusan;
+            $bappeda->skpd_pelaksana        = $skpd->skpd_pelaksana;
+            $bappeda->nama_pekerjaan        = $skpd->nama_pekerjaan;  
+            $bappeda->jalan                 = $skpd->jalan;         
+            $bappeda->ket_nomor             = $skpd->ket_nomor;     
+            $bappeda->ket_lokasi            = $skpd->ket_lokasi;    
+            $bappeda->link_maps             = $skpd->link_maps;    
+            $bappeda->status_lahan          = $skpd->status_lahan;  
+            $bappeda->harga                 = $skpd->harga;         
+            $bappeda->satuan                = $skpd->satuan;        
+            $bappeda->volume                = $skpd->volume;        
+            $bappeda->tgl_usulan            = $skpd->tgl_usulan;   // ini pada saat dikirim  
+            $bappeda->faktor1               = $skpd->faktor1;        
+            $bappeda->faktor2               = $skpd->faktor2;        
+            $bappeda->faktor3               = $skpd->faktor3; 
+            $bappeda->nilai1                = $skpd->nilai1;        
+            $bappeda->nilai2                = $skpd->nilai2;        
+            $bappeda->nilai3                = $skpd->nilai3;        
+            $bappeda->skor                  = $skpd->skor;        
+            $bappeda->keterangan            = $skpd->keterangan;        
+            $bappeda->cp_nama               = $skpd->cp_nama;        
+            $bappeda->cp_alamat             = $skpd->cp_alamat;        
+            $bappeda->cp_telp               = $skpd->cp_telp;        
+            $bappeda->cp_hp                 = $skpd->cp_hp;   
+            $bappeda->sts_usulan            = 'DIPROSES BAPPEDA'; 
+            $bappeda->level                 = $skpd->level;
+            $bappeda->keterangan_skpd       = $request->alasan;
+            $bappeda->sts_rpjmd             = $skpd->sts_rpjmd;
+
+            $bappeda->save();
+
 	    }elseif ($request->persetujuan == 'tolak') {
 	    	$skpd->sts_usulan = 'DITOLAK'; 
 	    }
@@ -56,8 +98,9 @@ class UsulanSKPDController extends Controller
 	    $skpd->verif_alasan = $request->alasan;
 	    $skpd->save();
 
-	    return redirect('skpd/verifikasi')
-                ->with('pesan', 'Usulan SKPD telah diperbaharui !');
+
+	    return redirect('skpd/verifikasi?desa='.$skpd->kd_desa.'&tipe='.$skpd->tipe_keg)
+                ->with('pesan', 'Usulan SKPD telah diverifikasi dan dikirim ke BAPPEDA !');
     }
 
     public function viewEditUsulan($id){
@@ -69,7 +112,7 @@ class UsulanSKPDController extends Controller
     	$this->validate($request,[
                 'id_usul_skpd'   => 'required|numeric',
                 'volume'            => 'required|numeric',
-                'jalan'             => 'required',
+                'jalan'             => 'nullable',
                 'ket_nomor'         => 'required|numeric',
                 'ket_lokasi'        => 'required',
                 'link_maps'        => 'required',
@@ -134,7 +177,7 @@ class UsulanSKPDController extends Controller
             'level_usulan'  => 'required',
             'id_kegiatan'   => 'required|numeric',
             'volume'        => 'required|numeric',
-            'jalan'         => 'required',
+            'jalan'         => 'nullable',
             'ket_nomor'     => 'required|numeric',
             'ket_lokasi'    => 'required',
             'link_maps'     => 'required',
@@ -267,6 +310,7 @@ class UsulanSKPDController extends Controller
 
         $skpd = new UsulanSKPDModel; 
         $skpd->id_user               = $distrik->id_user;       
+        $skpd->id_skpd               = Auth::user()->kode_wilayah;       
         $skpd->kd_distrik            = $distrik->kd_distrik;     //dari user
         $skpd->kd_desa               = $distrik->kd_desa;     //dari relasi user
         $skpd->id_usul_desa          = $distrik->id_usul_desa;

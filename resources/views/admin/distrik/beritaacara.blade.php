@@ -68,7 +68,7 @@
                                     <div class="errorTxt3"></div>
                                 </div>
                                 <div class="input-field col s6">
-                                    <label for="pemateri_lain">Pemateri Lain</label>
+                                    <label for="pemateri_lain">Pimpinan Sidang</label>
                                     <input type="text" name="pimpinan_sidang" id="pimpinan_sidang" value="<?php if(isset($ba->pimpinan_sidang)) echo $ba->pimpinan_sidang;?>" data-error=".errorTxt4">
                                     <div class="errorTxt4"></div>
                                 </div>
